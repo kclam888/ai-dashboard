@@ -1,6 +1,8 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = process.env.RESEND_API_KEY 
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 export async function sendVerificationEmail(
   email: string,
@@ -9,6 +11,11 @@ export async function sendVerificationEmail(
   const verificationUrl = `${process.env.NEXTAUTH_URL}/auth/verify?token=${verificationToken}`
 
   try {
+    if (!resend) {
+      console.warn('Resend API key not configured, skipping email send');
+      return null;
+    }
+
     const { data, error } = await resend.emails.send({
       from: 'Beam AI <no-reply@beam-ai.com>',
       to: email,
@@ -42,13 +49,13 @@ export async function sendVerificationEmail(
 
     if (error) {
       console.error('Failed to send verification email:', error)
-      throw new Error('Failed to send verification email')
+      return null;
     }
 
     return data
   } catch (error) {
     console.error('Error sending verification email:', error)
-    throw error
+    return null;
   }
 }
 
@@ -59,6 +66,11 @@ export async function sendPasswordResetEmail(
   const resetUrl = `${process.env.NEXTAUTH_URL}/auth/reset-password?token=${resetToken}`
 
   try {
+    if (!resend) {
+      console.warn('Resend API key not configured, skipping email send');
+      return null;
+    }
+
     const { data, error } = await resend.emails.send({
       from: 'Beam AI <no-reply@beam-ai.com>',
       to: email,
@@ -92,12 +104,12 @@ export async function sendPasswordResetEmail(
 
     if (error) {
       console.error('Failed to send reset email:', error)
-      throw new Error('Failed to send reset email')
+      return null;
     }
 
     return data
   } catch (error) {
     console.error('Error sending reset email:', error)
-    throw error
+    return null;
   }
 } 

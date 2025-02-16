@@ -6,5 +6,5 @@
   package = "@netlify/plugin-nextjs"
 
 [build.environment]
-  NEXT_PUBLIC_BASE_URL = "https://your-site.netlify.app"
-  NEXTAUTH_URL = "https://your-site.netlify.app"
+  NEXT_PUBLIC_BASE_URL = "https://ai-dashboard-kclam888.netlify.app"
+  NEXTAUTH_URL = "https://ai-dashboard-kclam888.netlify.app"
