@@ -6,7 +6,7 @@ const nextConfig = {
   },
   experimental: {
     serverActions: {
-      allowedOrigins: ['kenneth12.netlify.app'],
+      allowedOrigins: ['ai-dashboard-kclam888.netlify.app'],
     },
   },
 }
