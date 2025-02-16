@@ -9,6 +9,9 @@
   NEXT_PUBLIC_BASE_URL = "https://ai-dashboard-kclam888.netlify.app"
   NEXTAUTH_URL = "https://ai-dashboard-kclam888.netlify.app"
   NODE_VERSION = "18"
+  NEXTAUTH_SECRET = "CACROatrxfJ7aZNAf5e0rrKtNMQkpt9r/zPD+Nuqf6E="
+  NEXT_PUBLIC_GOOGLE_CLIENT_ID = "${env:NEXT_PUBLIC_GOOGLE_CLIENT_ID}"
+  GOOGLE_CLIENT_SECRET = "${env:GOOGLE_CLIENT_SECRET}"
 
 [[redirects]]
   from = "/*"
