@@ -8,3 +8,10 @@
 [build.environment]
   NEXT_PUBLIC_BASE_URL = "https://ai-dashboard-kclam888.netlify.app"
   NEXTAUTH_URL = "https://ai-dashboard-kclam888.netlify.app"
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/nextjs-server"
+  status = 200
+  force = true
