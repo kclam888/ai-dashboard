@@ -1,6 +1,7 @@
 [build]
-  command = "npm install && npx prisma generate && npm run build"
+  command = "npm install && npm run build"
   publish = ".next"
+  ignore = "git diff --quiet HEAD^ HEAD ./"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -12,6 +13,7 @@
   NEXTAUTH_SECRET = "CACROatrxfJ7aZNAf5e0rrKtNMQkpt9r/zPD+Nuqf6E="
   NEXT_PUBLIC_GOOGLE_CLIENT_ID = "${env:NEXT_PUBLIC_GOOGLE_CLIENT_ID}"
   GOOGLE_CLIENT_SECRET = "${env:GOOGLE_CLIENT_SECRET}"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 [[redirects]]
   from = "/*"
@@ -21,3 +23,4 @@
 
 [functions]
   node_bundler = "esbuild"
+  included_files = ["prisma/**/*"]
