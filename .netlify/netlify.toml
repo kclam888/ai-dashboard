@@ -1,0 +1,36 @@
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "config"
+package = "@netlify/plugin-nextjs"
+
+[plugins.inputs]
+
+[build]
+publish = "/Users/keo/Desktop/AIPROJECTS/cursor4/.next"
+publishOrigin = "config"
+commandOrigin = "config"
+base = "/Users/keo/Desktop/AIPROJECTS/cursor4"
+command = "npm run build"
+
+[build.environment]
+NEXT_PUBLIC_BASE_URL = "https://kenneth12.netlify.app"
+NEXTAUTH_URL = "https://kenneth12.netlify.app"
+NEXT_PRIVATE_TARGET = "server"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
